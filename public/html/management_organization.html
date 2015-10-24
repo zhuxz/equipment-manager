@@ -1,0 +1,297 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Amaze UI Admin index Examples</title>
+  <meta name="description" content="这是一个 index 页面">
+  <meta name="keywords" content="index">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <link rel="stylesheet" href="../assets/css/easyui.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+    <small class="am-text-lg">中杰计算机设备管理系统</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> admin <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <ul class="am-list admin-sidebar-list">
+      <li><a href="index.html"><img src="../assets/images/index.png" alt=""> <br/>首页 </a></li>
+      <li data-am-dropdown>
+        <a class="am-dropdown-toggle" href="javascript:;"><img src="../assets/images/equipment.png" alt=""> <br/> 设备管理 </a>
+          <ul class="am-dropdown-content">
+            <li><a href="index.html">新业务操作</a></li>
+            <li><a href="enter_equipment.html">设备入库</a></li>
+            <li><a href="out_storage.html">设备出库</a></li>
+            <li><a href="allocation_equipment.html">设备调拨</a></li>
+            <li><a href="scrap_equipment.html">设备报废</a></li>
+          </ul>
+      </li>
+      <li><a href="#"><span class="am-icon-wrench am-icon-md"></span> <br/> 系统管理 </a></li>
+      <li><a href="#"><img src="../assets/images/search.png" alt=""> <br/> 查询统计 </a></li>
+      <li><a href="#"><img src="../assets/images/contract.png" alt=""> <br/> 合同导入 </a></li>
+    </ul>
+  </div>
+  <!-- sidebar end -->
+
+<!--   <div class="admin-content search_block">
+
+  </div> -->
+
+  <!-- content start -->
+  <div class="admin-content">
+
+    <div class="am-u-lg-12 search_block">
+      <div class="am-g equ_form">
+        <div class="am-u-sm-12">
+          <span class="am-fr">系统管理>机构管理</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="am-u-lg-12">
+      <div class="am-g"><br/>
+        <table  class="easyui-treegrid am-table show-table" url="treegrid3_getdata.php" rownumbers="true" idField="organization_id" treeField="organization_name">
+          <thead> 
+            <tr>
+              <th field="organization_name" width="250">分行名称</th>
+              <th field="organization_code" width="250">机构代码</th>
+              <th field="organization_director" width="250" >联系人</th>
+              <th field="organization_mobile" width="250" >联系方式</th>
+              <th field="address" width="250" >操作</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p class="am-padding-left">© 2015安徽中杰计算机设备管理系统-V1.0 &nbsp;&nbsp;&nbsp;&nbsp;
+      电话：0551-63624995-8808</p>
+    </footer> 
+
+  </div>
+   <!-- content end -->
+</div>
+
+<!--模态框-->
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">设备入库
+      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+    </div>
+    <div class="am-modal-bd">
+
+      <form class="am-form am-form-horizontal">
+        <div class="am-form-group">
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text" id="doc-ipt-3" placeholder="合同编号">
+          </div>
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text"class="am-form-field" placeholder="保修起始日期" data-am-datepicker readonly/>
+          </div>
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text"class="am-form-field" placeholder="保修截止日期" data-am-datepicker readonly/>
+          </div>
+        </div>
+
+        <div class="am-form-group">  
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text"class="am-form-field" placeholder="供应商" data-am-datepicker />
+          </div>
+
+          <div class="am-u-sm-4">
+            <select id="doc-select-1">
+              <option value="option1">设备大类</option>
+              <option value="option2">选项二.....</option>
+              <option value="option3">选项三........</option>
+            </select>
+          </div>
+
+          <div class="am-u-sm-4">
+            <select id="doc-select-1">
+              <option value="option1">设备名称</option>
+              <option value="option2">选项二.....</option>
+              <option value="option3">选项三........</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="am-form-group">  
+          <div class="am-u-sm-4">
+            <select id="doc-select-1">
+              <option value="option1">设备品牌</option>
+              <option value="option2">选项二.....</option>
+              <option value="option3">选项三........</option>
+            </select>
+          </div>
+
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text" class="am-form-field" placeholder="设备型号" data-am-datepicker />
+          </div>
+
+          <div class="am-u-sm-4">
+            <select id="doc-select-1">
+              <option value="option1">设备类别</option>
+              <option value="option2">选项二.....</option>
+              <option value="option3">选项三........</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="am-form-group">  
+          <div class="am-u-sm-4">
+            <select id="doc-select-1">
+              <option value="option1">设备来源</option>
+              <option value="option2">选项二.....</option>
+              <option value="option3">选项三........</option>
+            </select>
+          </div>
+
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text" class="am-form-field" placeholder="入库编号" data-am-datepicker />
+          </div>
+
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text" class="am-form-field" placeholder="设备编号" data-am-datepicker />
+          </div>
+        </div>
+
+        <div class="am-form-group">  
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text" class="am-form-field" placeholder="资产编号" data-am-datepicker />
+          </div>
+
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text" class="am-form-field" placeholder="资产序列号" data-am-datepicker />
+          </div>
+
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text" class="am-form-field" placeholder="购置日期" data-am-datepicker readonly/>
+          </div>
+        </div>
+
+        <div class="am-form-group">  
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text" class="am-form-field" placeholder="设备数量" data-am-datepicker />
+          </div>
+
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text" class="am-form-field" placeholder="设备单价" data-am-datepicker />
+          </div>
+
+          <div class="am-u-sm-4">
+            <select id="doc-select-1">
+              <option value="option1">设备计量单位</option>
+              <option value="option2">选项二.....</option>
+              <option value="option3">选项三........</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="am-form-group">  
+          <div class="am-u-sm-4">
+            <select id="doc-select-1">
+              <option value="option1">使用分行</option>
+              <option value="option2">选项二.....</option>
+              <option value="option3">选项三........</option>
+            </select>
+          </div>
+
+          <div class="am-u-sm-4">
+            <select id="doc-select-1">
+              <option value="option1">使用部门</option>
+              <option value="option2">选项二.....</option>
+              <option value="option3">选项三........</option>
+            </select>
+          </div>
+
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text" class="am-form-field" placeholder="使用人" data-am-datepicker readonly/>
+          </div>
+        </div>
+
+        <div class="am-form-group">  
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text" class="am-form-field" placeholder="标准配置" data-am-datepicker />
+          </div>
+
+          <div class="am-u-sm-4">
+            <input class="modal-text" type="text" class="am-form-field" placeholder="经办人" data-am-datepicker readonly/>
+          </div>
+
+          <div class="am-u-sm-4">
+            <button type="submit" class="am-btn am-btn-default search_btn">保存</button>
+          </div>
+        </div><hr/>
+
+        <div class="am-form-group">  
+          <div class="am-u-sm-4">
+            <div class="am-form-group am-form-file am-fl">
+              <button type="button" class="am-btn am-btn-default am-btn-sm">
+              <i class="am-icon-cloud-upload"></i> 一键导入</button>
+              <input type="file" id="doc-ipt-file-2">
+            </div>
+          </div>
+
+          <div class="am-u-sm-4">
+            <button type="submit" class="am-btn am-btn-default search_btn">确定</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="../assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="../assets/js/amazeui.min.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/jquery.easyui.min.js"></script>
+
+</body>
+</html>
